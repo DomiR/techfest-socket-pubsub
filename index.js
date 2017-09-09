@@ -10,6 +10,9 @@ const PORT = (process.env.PORT || 5000);
 app.use(bodyParser.json())
 
 server.listen(PORT);
+app.get('/', function(req, res) {
+	res.send('WORKING :)');
+})
 app.post('/publish', function (req, res) {
 	console.log('getting data', req.body);
 	io.emit('message', req.body);
